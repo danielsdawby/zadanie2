@@ -46,4 +46,25 @@ const app = new Vue({
             deep: true
         }
     },
+    methods: {
+
+        saveData: function () {
+          const data = {
+            firstColumn: this.firstColumn,
+            secondColumn: this.secondColumn,
+            thirdColumn: this.thirdColumn,
+            items: this.items
+          };
+          localStorage.setItem(storageKey, JSON.stringify(data));
+        },
+        canDeleteGroup: function (group) {
+          return group.items.every(item => !item.checked);
+        },
+        deleteNoteGroup(groupId) {
+          this.firstColumn = this.firstColumn.filter(group => group.id !== groupId);
+          this.secondColumn = this.secondColumn.filter(group => group.id !== groupId);
+          this.thirdColumn = this.thirdColumn.filter(group => group.id !== groupId);
+          this.saveDataToLocalStorage();
+        },
+    }
 })
