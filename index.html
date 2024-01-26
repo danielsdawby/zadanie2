@@ -24,6 +24,49 @@
                 <button class="btn create-btn" @click="createNotes" :disabled="items.length === 0">Create</button>
             </p>
         </form>
+        <div class="columns">
+            <div class="column">
+                <h2>First Column</h2>
+                <div class="card" v-for="group in firstColumn" :key="group.id">
+                    <h3>{{ group.noteTitle }}</h3>
+                    <ul>
+                        <li v-for="item in group.items" :key="item.id">
+                            <input type="checkbox" v-model="item.checked" :disabled="item.disabled"
+                                @change="updateProgress(group, item)">
+                            {{ item.text }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <h2>Second Column</h2>
+                <div class="card" v-for="group in secondColumn" :key="group.id">
+                    <h3>{{ group.noteTitle }}</h3>
+                    <ul>
+                        <li v-for="item in group.items" :key="item.id">
+                            <input type="checkbox" v-model="item.checked" :disabled="item.disabled"
+                                @change="updateProgress(group, item)">
+                            {{ item.text }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <h2>Thirdy Column</h2>
+                <div v-for="group in thirdColumn" :key="group.id">
+                    <div class="card">
+                        <h3>{{ group.noteTitle }}</h3>
+                        <ul>
+                            <li v-for="item in group.items" :key="item.id">
+                                <input type="checkbox" v-model="item.checked" :disabled="item.disabled">
+                                {{ item.text }}
+                            </li>
+                        </ul>
+                        <p v-if="group.isComplete">{{ group.lastChecked }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
