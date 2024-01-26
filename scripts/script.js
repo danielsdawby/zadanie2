@@ -18,4 +18,32 @@ const app = new Vue({
         noteTitle: '',
         items: []
     },
+    watch: {
+        firstColumn: {
+            handler: function (newFirstColumn) {
+                this.saveData();
+            },
+            deep: true
+        },
+        secondColumn: {
+            handler: function (newSecondColumn) {
+                this.saveData();
+                this.checkDisableFirstColumn();
+            },
+            deep: true
+        },
+        thirdColumn: {
+            handler: function (newThirdColumn) {
+                this.saveData();
+            },
+            deep: true
+        },
+        items: {
+            handler: function (newItems) {
+                this.saveData();
+                this.checkDisableFirstColumn();
+            },
+            deep: true
+        }
+    },
 })
