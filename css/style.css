@@ -32,6 +32,7 @@ body {
 }
 
 .btn {
+<<<<<<< HEAD
     background-color: #3498db; /* Default blue color */
     color: #fff;
     padding: 10px 20px;
@@ -44,6 +45,14 @@ body {
 
 .btn:hover {
     background-color: #2980b9; /* Darker blue when hovered */
+=======
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+>>>>>>> 72da9087434cd0fc33302c1c1b1010ceea5a8e37
 }
 
 .btn:disabled {
@@ -52,6 +61,7 @@ body {
 }
 
 .create-btn {
+<<<<<<< HEAD
     background-color: #4caf50;
     color: #fff;
 }
@@ -82,12 +92,19 @@ body {
 .add-button:disabled {
     background-color: #bbb; /* Disabled button */
     cursor: not-allowed;
+=======
+    background-color: #3498db;
+>>>>>>> 72da9087434cd0fc33302c1c1b1010ceea5a8e37
 }
 
 .columns {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 72da9087434cd0fc33302c1c1b1010ceea5a8e37
 }
 
 .column {
@@ -109,4 +126,8 @@ body {
 
 input[type="checkbox"] {
     margin-right: 5px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 72da9087434cd0fc33302c1c1b1010ceea5a8e37

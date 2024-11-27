@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,3 +51,79 @@
   <script src="scripts/script.js"></script>
 </body>
 </html>
+=======
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./scripts/vue.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Хранение заметок</title>
+</head>
+
+<body>
+    <h1 class="title">Хранение заметок</h1>
+    <div id="app">
+        <form class="cardForm" @submit.prevent="addItem">
+            <p>
+                <label for="NoteTitle">Title:</label>
+                <input class="titlenote" id="NoteTitle" v-model="noteTitle" placeholder="title" required>
+            </p>
+            <p v-for="(item, index) in items" :key="index">
+                <label>{{ `Action ${index + 1}:` }}</label>
+                <input v-model="item.text" placeholder="Action" required>
+            </p>
+            <p>
+                <button class="btn" :disabled="items.length >= 5">Add Item</button>
+                <button class="btn create-btn" @click="createNotes" :disabled="items.length === 0">Create</button>
+            </p>
+        </form>
+        <div class="columns">
+            <div class="column">
+                <h2>First Column</h2>
+                <div class="card" v-for="group in firstColumn" :key="group.id">
+                    <h3>{{ group.noteTitle }}</h3>
+                    <ul>
+                        <li v-for="item in group.items" :key="item.id">
+                            <input type="checkbox" v-model="item.checked" :disabled="item.disabled"
+                                @change="updateProgress(group, item)">
+                            {{ item.text }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <h2>Second Column</h2>
+                <div class="card" v-for="group in secondColumn" :key="group.id">
+                    <h3>{{ group.noteTitle }}</h3>
+                    <ul>
+                        <li v-for="item in group.items" :key="item.id">
+                            <input type="checkbox" v-model="item.checked" :disabled="item.disabled"
+                                @change="updateProgress(group, item)">
+                            {{ item.text }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <h2>Thirdy Column</h2>
+                <div v-for="group in thirdColumn" :key="group.id">
+                    <div class="card">
+                        <h3>{{ group.noteTitle }}</h3>
+                        <ul>
+                            <li v-for="item in group.items" :key="item.id">
+                                <input type="checkbox" v-model="item.checked" :disabled="item.disabled">
+                                {{ item.text }}
+                            </li>
+                        </ul>
+                        <p v-if="group.isComplete">{{ group.lastChecked }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>
+>>>>>>> 72da9087434cd0fc33302c1c1b1010ceea5a8e37
